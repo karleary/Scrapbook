@@ -1,9 +1,9 @@
-class PicturesController < PictureController
+class PicturesController < ApplicationController
   # GET /pictures
   # GET /pictures.json
   def index
     @pictures = Picture.all
-    @tags = Tags.all
+    @tags = Tag.all
 
     respond_to do |format|
       format.html # index.html.erb

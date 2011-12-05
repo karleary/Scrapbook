@@ -1,0 +1,2 @@
+module TagPicturesHelper
+end

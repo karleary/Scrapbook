@@ -1,0 +1,21 @@
+<h1>Listing picture_tags</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @picture_tags.each do |picture_tag| %>
+  <tr>
+    <td><%= link_to 'Show', picture_tag %></td>
+    <td><%= link_to 'Edit', edit_picture_tag_path(picture_tag) %></td>
+    <td><%= link_to 'Destroy', picture_tag, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Picture tag', new_picture_tag_path %>
