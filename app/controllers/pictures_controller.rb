@@ -26,6 +26,10 @@ class PicturesController < ApplicationController
   # GET /pictures/new.json
   def new
     @picture = Picture.new
+    tag = params[:tag]
+    tag_id =  params[tag]
+    mytag = {:tag_id => params[:tag], :picture_id => params[:id]} 
+    TagPicture.new(mytag).save
 
     respond_to do |format|
       format.html # new.html.erb
@@ -60,7 +64,6 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
     tag = params[:tag]
     tag_id =  params[tag]
-    #mytag = {:tag_id => tag_id, :picture_id => params[:id]} 
     mytag = {:tag_id => params[:tag], :picture_id => params[:id]} 
     TagPicture.new(mytag).save
 
