@@ -21,7 +21,8 @@
   </div>
 
   <div class="field">
-    <%= collection_select(:tag_id, :tag_name, Tag.all, :id, :name) %> 
+      <%= select("tag", "id", Tag.all.collect {|t| [ t.name, t.id ] }, {:prompt => 'Select Tag'}) %>
+
   </div>
   
   <div class="actions">

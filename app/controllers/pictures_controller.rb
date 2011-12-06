@@ -58,6 +58,11 @@ class PicturesController < ApplicationController
   # PUT /pictures/1.json
   def update
     @picture = Picture.find(params[:id])
+    tag = params[:tag]
+    tag_id =  params[tag]
+    #mytag = {:tag_id => tag_id, :picture_id => params[:id]} 
+    mytag = {:tag_id => params[:tag], :picture_id => params[:id]} 
+    TagPicture.new(mytag).save
 
     respond_to do |format|
       if @picture.update_attributes(params[:picture])
