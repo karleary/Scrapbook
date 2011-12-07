@@ -28,7 +28,7 @@ class PicturesController < ApplicationController
     @picture = Picture.new
     tag = params[:tag]
     tag_id =  params[tag]
-    mytag = {:tag_id => params[:tag], :picture_id => params[:id]} 
+    mytag = {:tag_id => params[:tag], :picture_id => @picture.id} 
     TagPicture.new(mytag).save
 
     respond_to do |format|

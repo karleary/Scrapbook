@@ -9,7 +9,13 @@
   <b>Description:</b>
   <%= @picture.description %>
 </p>
-
+<p>
+  <b>Photo:</b>
+  <%= image_tag @picture.photo.url(:small) %>
+</p>
+<p>
+    <b>Tags</b>
+  <%= @picture.tags %>
 
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
 <%= link_to 'Back', pictures_path %>
