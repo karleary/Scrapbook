@@ -26,11 +26,7 @@ class PicturesController < ApplicationController
   # GET /pictures/new.json
   def new
     @picture = Picture.new
-    tag = params[:tag]
-    tag_id =  params[tag]
-    mytag = {:tag_id => params[:tag], :picture_id => @picture.id} 
-    TagPicture.new(mytag).save
-
+   
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @picture }
@@ -46,9 +42,14 @@ class PicturesController < ApplicationController
   # POST /pictures.json
   def create
     @picture = Picture.new(params[:picture])
+     
 
     respond_to do |format|
       if @picture.save
+        tag = params[:tag]
+          tag_id =  params[tag]
+          mytag = {:tag_id => params[:tag], :picture_id => @picture[:id]} 
+          TagPicture.new(mytag).save
         format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
         format.json { render json: @picture, status: :created, location: @picture }
       else

@@ -11,11 +11,12 @@
 </p>
 <p>
   <b>Photo:</b>
-  <%= image_tag @picture.photo.url(:small) %>
+  <img src="/assets/pictures/24/medium/family.jpg">
 </p>
-<p>
-    <b>Tags</b>
+<p>    
+  <b>Tags</b>
   <%= @picture.tags %>
+</p>
 
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
 <%= link_to 'Back', pictures_path %>
