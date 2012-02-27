@@ -46,7 +46,13 @@ class PicturesController < ApplicationController
 
     respond_to do |format|
       if @picture.save
-        tag = params[:tag]
+        # for each tag
+        
+        # if it's selected, save the tag association
+        
+        # if it's not, remove the tag association
+        
+          tag = params[:tag]
           tag_id =  params[tag]
           mytag = {:tag_id => params[:tag], :picture_id => @picture[:id]} 
           TagPicture.new(mytag).save
@@ -62,11 +68,12 @@ class PicturesController < ApplicationController
   # PUT /pictures/1
   # PUT /pictures/1.json
   def update
+     #raise NameError, params[:tags]
     @picture = Picture.find(params[:id])
     tag = params[:tag]
     tag_id =  params[tag]
     mytag = {:tag_id => params[:tag], :picture_id => params[:id]} 
-    TagPicture.new(mytag).save
+    Picture.save
 
     respond_to do |format|
       if @picture.update_attributes(params[:picture])
